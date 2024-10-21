@@ -7,7 +7,7 @@ SELECT
     ROUND(AVG(sales.price * (1 - COALESCE(sales.discount, 0) / 100.0)), 2) AS avg_price  -- Средняя цена с учётом скидки, округлённая до 2 знаков
 FROM 
     car_shop.cars
-JOIN 
+INNER JOIN 
     car_shop.sales ON cars.id = sales.car_id  -- Объединяем таблицы по идентификатору автомобиля
 GROUP BY 
     cars.brand_origin, year  -- Группируем по бренду и году

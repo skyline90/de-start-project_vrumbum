@@ -7,7 +7,7 @@ SELECT
     MIN(sales.price / (1 - COALESCE(sales.discount, 0) / 100.0)) AS min_price   -- Самая маленькая цена без учёта скидки
 FROM 
     car_shop.sales
-JOIN 
+INNER JOIN 
     car_shop.cars ON sales.car_id = cars.id  -- Объединение таблиц продаж и автомобилей
 GROUP BY 
     cars.brand_origin  -- Группировка по стране происхождения бренда

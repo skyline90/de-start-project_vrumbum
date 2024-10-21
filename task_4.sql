@@ -6,9 +6,9 @@ SELECT
     STRING_AGG(cars.auto, ', ') AS cars_purchased  -- Собираем список машин через запятую
 FROM 
     car_shop.sales
-JOIN 
+INNER JOIN 
     car_shop.customers ON sales.customer_id = customers.id  -- Соединяем таблицы продаж и клиентов
-JOIN 
+INNER JOIN 
     car_shop.cars ON sales.car_id = cars.id  -- Соединяем таблицы продаж и машин
 GROUP BY 
     customers.person_name  -- Группируем по имени пользователя
